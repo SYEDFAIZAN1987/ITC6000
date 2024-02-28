@@ -1,0 +1,70 @@
+@startuml
+ 
+skinparam linetype polyline
+entity "USER" {
+* PK  | <u><back:orange>**user_id**</back> 
+--
+    name
+    email 
+  location
+  username 
+  password
+}
+
+entity "SUBSCRIPTION" {
+ * PK | <u><back:orange>**subscription_id**</back> 
+--
+   FK | <i><back:yellow>user_id</back>
+  start_date
+  expiry_date
+  payment
+  status
+}
+
+entity "STARTUP" {
+* PK  | <u><back:orange>**startup_id**</back> 
+--
+FK | <i><back:yellow>user_id</back>
+  industry
+  geolocation
+  equity_offered
+}
+
+entity "INVESTOR" {
+* PK  | <u><back:orange>**investor_id**</back> 
+--
+FK | <i><back:yellow>user_id</back>
+  investment_capacity
+  industry
+  geolocation
+}
+
+entity "MATCHING" {
+* PK  | <u><back:orange>**investment_id**</back>
+--
+FK | <i><back:yellow>startup_id</back>
+  description
+  investment_capacity
+  equity_offered
+  location
+  industry
+}
+
+entity "INVESTMENT" {
+* PK,   |  <u><back:orange>**investment_id**</back> 
+* PK, FK1  |  <u><back:orange>**investor_id**</back> 
+
+  amount_invested
+ 
+  
+}
+
+USER --|{ SUBSCRIPTION 
+SUBSCRIPTION -- STARTUP
+SUBSCRIPTION -- INVESTOR
+USER --|{ STARTUP
+USER --|{ INVESTOR 
+STARTUP --|{ MATCHING
+INVESTOR --|{ INVESTMENT 
+MATCHING --|{ INVESTMENT
+@enduml
