@@ -1,5 +1,7 @@
 @startuml
- 
+
+
+
 skinparam linetype polyline
 entity "USER" {
 * PK  | <u><back:orange>**user_id**</back> 
@@ -67,4 +69,8 @@ USER --|{ INVESTOR
 STARTUP --|{ MATCHING
 INVESTOR --|{ INVESTMENT 
 MATCHING --|{ INVESTMENT
+
+
+' Citations: for creole and HTML syntax for styling look here https://plantuml.com/creole#:~:text=for%20bold%20text,for%20italic
+
 @enduml
