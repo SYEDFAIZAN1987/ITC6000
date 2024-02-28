@@ -53,8 +53,8 @@ FK | <i><back:yellow>startup_id</back>
 }
 
 entity "INVESTMENT" {
-* PK,   |  <u><back:orange>**investment_id**</back> 
-* PK, FK1  |  <u><back:orange>**investor_id**</back> 
+* PK, FK1   |  <u><back:orange>**investment_id**</back> 
+* PK, FK2  |  <u><back:orange>**investor_id**</back> 
 
   amount_invested
  
